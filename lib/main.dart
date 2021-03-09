@@ -19,16 +19,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return BlocProvider(
-      blocs: [
-        Bloc((i) => VideosBloc()),
-        Bloc((p) => FavoriteBloc()),
-      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'youtubeFlutter',
         home: Home(),
 
       ),
+      blocs: [
+        Bloc((i) => VideosBloc()),
+        Bloc((i) => FavoriteBloc()),
+      ],
     );
   }
 }
