@@ -5,12 +5,9 @@ import 'package:youtube_blocpattern/delegates/data_search.dart';
 import 'package:youtube_blocpattern/widgets/videoTile.dart';
 
 class Home extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
-
     final bloc = BlocProvider.getBloc<VideosBloc>();
-
 
     return Scaffold(
       appBar: AppBar(
@@ -35,6 +32,7 @@ class Home extends StatelessWidget {
             onPressed: () async {
               String result =
                   await showSearch(context: context, delegate: DataSearch());
+              print(result);
             },
           ),
         ],
@@ -42,15 +40,29 @@ class Home extends StatelessWidget {
       backgroundColor: Colors.black,
       body: StreamBuilder(
         stream: bloc.outVideos,
+        initialData: [],
         // stream: BlocProvider.of<VideosBloc>(context).outVideos,
         builder: (context, snapshot) {
           if (snapshot.hasData)
             return ListView.builder(
-                itemBuilder: (context, index){
+              itemBuilder: (context, index) {
+                if (index < snapshot.data.length) {
                   return VideoTile(snapshot.data[index]);
-
-                },
-              itemCount: snapshot.data.length,
+                } else if(index > 1){
+                  bloc.inSearch.add(null);
+                  return Container(
+                    height: 40,
+                    width: 40,
+                    alignment: Alignment.center,
+                    child: CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
+                    ),
+                  );
+                } else {
+                  return Container();
+                }
+              },
+              itemCount: snapshot.data.length + 1,
             );
           else
             return Container();
