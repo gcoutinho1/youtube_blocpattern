@@ -5,8 +5,13 @@ import 'package:youtube_blocpattern/delegates/data_search.dart';
 import 'package:youtube_blocpattern/widgets/videoTile.dart';
 
 class Home extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
+
+    final bloc = BlocProvider.getBloc<VideosBloc>();
+
+
     return Scaffold(
       appBar: AppBar(
         title: Container(
@@ -36,7 +41,7 @@ class Home extends StatelessWidget {
       ),
       backgroundColor: Colors.black,
       body: StreamBuilder(
-        stream: VideosBloc().outVideos,
+        stream: bloc.outVideos,
         // stream: BlocProvider.of<VideosBloc>(context).outVideos,
         builder: (context, snapshot) {
           if (snapshot.hasData)
