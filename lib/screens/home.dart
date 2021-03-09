@@ -12,7 +12,7 @@ class Home extends StatelessWidget {
         ),
         elevation: 0,
         backgroundColor: Colors.black,
-        actions: <Widget> [
+        actions: <Widget>[
           Align(
             alignment: Alignment.center,
             child: Text("0"),
@@ -20,15 +20,14 @@ class Home extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.favorite),
             color: Colors.red,
-            onPressed: (){
-
-            },
+            onPressed: () {},
           ),
           IconButton(
             icon: Icon(Icons.search),
             onPressed: () async {
-                  String result = await showSearch(context: context, delegate: DataSearch());
-                  print(result);
+              String result =
+                  await showSearch(context: context, delegate: DataSearch());
+              print(result);
             },
           ),
         ],
