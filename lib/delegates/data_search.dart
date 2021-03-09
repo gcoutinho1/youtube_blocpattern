@@ -71,7 +71,7 @@ class DataSearch extends SearchDelegate<String> {
         "http://suggestqueries.google.com/complete/search?hl=en&ds=yt&client=youtube&hjson=t&cp=1&q=$search&format=5&alt=json"
 
         // "http://suggestqueries.google.com/complete/search?client=youtube&ds=yt&q=$search"
-    );
+        );
 
     if (response.statusCode == 200) {
       return json.decode(response.body)[1].map((v) {
