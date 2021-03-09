@@ -9,7 +9,7 @@ class VideosBloc implements BlocBase {
 
   List<Video> videos;
   final StreamController<List<Video>> _videosController =
-      StreamController<List<Video>>();
+      StreamController<List<Video>>.broadcast();
 
   Stream get outVideos => _videosController.stream;
   final StreamController<String> _searchController = StreamController<String>();
