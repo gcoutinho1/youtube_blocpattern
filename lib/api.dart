@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'models/video.dart';
 
-const API_KEY = "AIzaSyCvHqsMp64FDPKMXteoHpR7VHQe0H5HlH8";
+const API_KEY = "URLAPIHERE";
 
 class Api {
 
