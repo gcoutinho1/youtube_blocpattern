@@ -48,7 +48,6 @@ class DataSearch extends SearchDelegate<String> {
               child: CircularProgressIndicator(),
             );
           } else {
-            // TODO: verificar o motivo da pesquisa não aparecer nos androids 9 e acima
             return ListView.builder(
               itemBuilder: (context, index) {
                 return ListTile(
@@ -68,9 +67,8 @@ class DataSearch extends SearchDelegate<String> {
 
   Future<List> suggestions(String search) async {
     http.Response response = await http.get(
-        "http://suggestqueries.google.com/complete/search?hl=en&ds=yt&client=youtube&hjson=t&cp=1&q=$search&format=5&alt=json"
+        "https://suggestqueries.google.com/complete/search?hl=en&ds=yt&client=youtube&hjson=t&cp=1&q=$search&format=5&alt=json"
 
-        // "http://suggestqueries.google.com/complete/search?client=youtube&ds=yt&q=$search"
         );
 
     if (response.statusCode == 200) {
