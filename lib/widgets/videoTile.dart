@@ -39,7 +39,7 @@ class VideoTile extends StatelessWidget {
                       ),
                       Padding(padding: EdgeInsets.all(8),
                         child: Text(
-                            video.channel,
+                            video.channel ?? 'sem channel',
                           style: TextStyle(color: Colors.white,
                               fontSize: 12),
                         ),

@@ -42,6 +42,7 @@ class Home extends StatelessWidget {
             onPressed: () async {
               String result =
                   await showSearch(context: context, delegate: DataSearch());
+              bloc.search(result);
               print(result);
             },
           ),
