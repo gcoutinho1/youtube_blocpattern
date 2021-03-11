@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:bloc_pattern/bloc_pattern.dart';
-import 'package:bloc_pattern/bloc_pattern.dart';
+import 'package:rxdart/rxdart.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:youtube_blocpattern/models/video.dart';
 import 'dart:async';
@@ -9,8 +9,9 @@ import 'dart:async';
 class FavoriteBloc implements BlocBase {
   Map<String, Video> _favorites = {};
 
-  final StreamController<Map<String, Video>> _favController =
-      StreamController<Map<String, Video>>.broadcast();
+  //.seedd(1) example seedValue
+  // alterei streamController para BehaviorSubject para o app detectar os icones dos vídeos salvos como favoritos
+  final  _favController = BehaviorSubject<Map<String, Video>>();
 
   Stream<Map<String, Video>> get outFav => _favController.stream;
 
