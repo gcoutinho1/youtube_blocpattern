@@ -7,7 +7,8 @@ import 'package:youtube_blocpattern/models/video.dart';
 import 'dart:async';
 
 class FavoriteBloc implements BlocBase {
-  Map<String, Video> _favorites = {};
+
+  Map<String, Video> favorites = {};
 
   //.seedd(1) example seedValue
   // alterei streamController para BehaviorSubject para o app detectar os icones dos vídeos salvos como favoritos
@@ -17,11 +18,12 @@ class FavoriteBloc implements BlocBase {
 
   FavoriteBloc() {
     SharedPreferences.getInstance().then((prefs) {
+      // prefs.clear();
       if (prefs.getKeys().contains("favorites")) {
-        _favorites = json.decode(prefs.getString("favorites")).map((k, v) {
+        favorites = json.decode(prefs.getString("favorites")).map((k, v) {
           return MapEntry(k, Video.fromJson(v));
         }).cast<String, Video>();
-        _favController.add(_favorites);
+        _favController.add(favorites);
       }
     });
   }
@@ -32,18 +34,18 @@ class FavoriteBloc implements BlocBase {
   }
 
   void toggleFavorite(Video video) {
-    if (_favorites.containsKey(video.id))
-      _favorites.remove(video.id);
+    if (favorites.containsKey(video.id))
+      favorites.remove(video.id);
     else
-      _favorites[video.id] = video;
+      favorites[video.id] = video;
 
-    _favController.sink.add(_favorites);
+    _favController.sink.add(favorites);
     _saveFavorite();
   }
 
   void _saveFavorite(){
     SharedPreferences.getInstance().then((prefs){
-      prefs.setString("favorites", json.encode(_favorites));
+      prefs.setString("favorites", json.encode(favorites));
     });
   }
 
