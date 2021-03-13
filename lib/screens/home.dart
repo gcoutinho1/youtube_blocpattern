@@ -18,6 +18,7 @@ class Home extends StatelessWidget {
         title: Container(
           height: 25,
           child: Image.asset("images/youtubelogo.png"),
+          // child: Text("CoutinhoTube"),
         ),
         elevation: 0,
         backgroundColor: Colors.black,
