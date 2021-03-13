@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_youtube/flutter_youtube.dart';
 import 'package:youtube_blocpattern/blocs/favorite_bloc.dart';
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:youtube_blocpattern/models/video.dart';
+import 'package:youtube_blocpattern/api.dart';
 
 class FavoritesScreen extends StatelessWidget {
 
@@ -24,6 +26,7 @@ class FavoritesScreen extends StatelessWidget {
                 children: snapshot.data.values.map((v){
                   return InkWell(
                     onTap: (){
+                      FlutterYoutube.playYoutubeVideoById(apiKey: API_KEY, videoId: v.id);
 
                     },
                     onLongPress: (){
