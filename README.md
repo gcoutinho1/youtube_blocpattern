@@ -1,5 +1,5 @@
-# youtube_blocpattern
+# Youtube App
 
-Youtube Flutter application.
+Youtube with Flutter
 
 ![Youtube Flutter Demo](youtube_blocpattern/blob/master/lib/gif/youtubeFlutter-demo.gif)
