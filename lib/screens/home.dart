@@ -18,19 +18,19 @@ class Home extends StatelessWidget {
         title: Container(
           height: 25,
           child: Image.asset("images/youtubelogo.png"),
-          // child: Text("CoutinhoTube"),
         ),
         elevation: 0,
-        backgroundColor: Colors.black,
+        // backgroundColor: Colors.orange,
         actions: <Widget>[
           Align(
             alignment: Alignment.center,
             child: StreamBuilder<Map<String, Video>>(
               stream: blocFav.outFav,
-              builder: (context, snapshot){
-                if(snapshot.hasData) return Text("${snapshot.data.length}");
-                else return Container();
-
+              builder: (context, snapshot) {
+                if (snapshot.hasData)
+                  return Text("${snapshot.data.length}");
+                else
+                  return Container();
               },
             ),
           ),
@@ -38,7 +38,8 @@ class Home extends StatelessWidget {
             icon: Icon(Icons.favorite),
             color: Colors.red,
             onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context)=> FavoritesScreen()));
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => FavoritesScreen()));
             },
           ),
           IconButton(
@@ -52,18 +53,17 @@ class Home extends StatelessWidget {
           ),
         ],
       ),
-      backgroundColor: Colors.black,
+      // backgroundColor: Colors.orangeAccent,
       body: StreamBuilder(
         stream: bloc.outVideos,
         initialData: {},
-        // stream: BlocProvider.of<VideosBloc>(context).outVideos,
         builder: (context, snapshot) {
           if (snapshot.hasData)
             return ListView.builder(
               itemBuilder: (context, index) {
                 if (index < snapshot.data.length) {
                   return VideoTile(snapshot.data[index]);
-                } else if(index > 1){
+                } else if (index > 1) {
                   bloc.inSearch.add(null);
                   return Container(
                     height: 40,

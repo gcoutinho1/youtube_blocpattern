@@ -7,23 +7,20 @@ import 'package:youtube_blocpattern/screens/home.dart';
 import 'api.dart';
 
 void main() {
-
-  Api api = Api();
-  api.search("Flutter estudos");
+  // Api api = Api();
+  // api.search("Flutter estudos");
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
-
     return BlocProvider(
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'youtubeFlutter',
+        theme: new ThemeData.dark(),
+        title: 'CoutinhoTube',
         home: Home(),
-
       ),
       blocs: [
         Bloc((i) => VideosBloc()),
@@ -32,13 +29,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
-
-// MaterialApp(
-// debugShowCheckedModeBanner: false,
-// title: 'youtube',
-// home: Home(),
-//
-// ),
-
