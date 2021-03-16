@@ -2,4 +2,4 @@
 
 Youtube Flutter application.
 
-![Youtube Flutter Demo](youtube_blocpattern\lib\gif\youtubeFlutter-demo.gif)
+![Youtube Flutter Demo](youtube_blocpattern/blob/master/lib/gif/youtubeFlutter-demo.gif)
