@@ -39,7 +39,7 @@ class Api {
 
       return videos;
     } else {
-      throw Exception("Falha ao carregar arquivos");
+      throw Exception("Falha ao carregar os videos");
     }
   }
 }
