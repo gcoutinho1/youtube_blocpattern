@@ -15,9 +15,9 @@
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
-![](https://img.shields.io/badge/Framework-Flutter-informational?style=flat&logo=Flutter&logoColor=white&color=FFA500) 
-![](https://img.shields.io/badge/IDE-AndroidStudio-informational?style=flat&logo=Android-Studio&logoColor=white&color=FFA500)
-![](https://img.shields.io/badge/Code-Dart-informational?style=flat&logo=dart&logoColor=white&color=FFA500)
+![](https://img.shields.io/badge/IDE-AndroidStudio-informational?style=flat&logo=Android-Studio&logoColor=white&color=FFA500)  
+![](https://img.shields.io/badge/Framework-Flutter-informational?style=flat&logo=Flutter&logoColor=white&color=FFA500)  
+![](https://img.shields.io/badge/Code-Dart-informational?style=flat&logo=dart&logoColor=white&color=FFA500)  
 
 #### 💾 Packages
 
